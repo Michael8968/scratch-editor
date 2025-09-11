@@ -145,7 +145,8 @@ const ProjectFetcherHOC = function (WrappedComponent) {
         setProjectId: PropTypes.func
     };
     ProjectFetcherComponent.defaultProps = {
-        assetHost: 'https://assets.scratch.mit.edu',
+        // window.location.href 去掉末尾的 /
+        assetHost: window.location.href.replace(/\/$/, '') || 'https://assets.scratch.mit.edu',
         projectHost: 'https://projects.scratch.mit.edu'
     };
 
