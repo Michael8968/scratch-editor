@@ -115,6 +115,10 @@ const distConfig = baseConfig.clone()
                     from: 'src/lib/libraries/*.json',
                     to: 'libraries',
                     flatten: true
+                },
+                {
+                    from: 'downloaded-sprites',
+                    to: 'downloaded-sprites'
                 }
             ]
         })
@@ -196,6 +200,10 @@ const buildConfig = baseConfig.clone()
                 from: 'extensions/**',
                 to: 'static',
                 context: 'src/examples'
+            },
+            {
+                from: 'downloaded-sprites',
+                to: 'downloaded-sprites'
             }
         ]
     }));
