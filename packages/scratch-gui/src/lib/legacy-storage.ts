@@ -128,7 +128,7 @@ export class LegacyStorage implements GUIStorage {
     }
 
     private getAssetGetConfig (asset: Asset) {
-        return `${this.assetHost}/downloaded-sprites/${asset.assetId}.${asset.dataFormat}`;
+        return `${this.assetHost?.replace('index.html', '')}/downloaded-sprites/${asset.assetId}.${asset.dataFormat}`;
     }
 
     private getAssetCreateConfig (asset: Asset) {
