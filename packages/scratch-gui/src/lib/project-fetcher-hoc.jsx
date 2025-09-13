@@ -146,7 +146,7 @@ const ProjectFetcherHOC = function (WrappedComponent) {
     };
     ProjectFetcherComponent.defaultProps = {
         // window.location.href 去掉末尾的 / 或者 /index.html
-        assetHost: window.location.href.replace(/\/$/, '').replace('/index.html', '') || 'https://assets.scratch.mit.edu',
+        assetHost: (window.location.origin + window.location.pathname).replace(/\/$/, '').replace('/index.html', '') || 'https://assets.scratch.mit.edu',
         projectHost: 'https://projects.scratch.mit.edu'
     };
 
