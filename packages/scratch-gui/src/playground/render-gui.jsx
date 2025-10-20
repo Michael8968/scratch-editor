@@ -24,6 +24,20 @@ const handleTelemetryModalOptOut = () => {
     log('User opted out of telemetry');
 };
 
+const handleVmInit = vm => {
+    // 将 VM 实例暴露到全局 window 对象
+    try {
+        if (typeof window !== 'undefined' && vm) {
+            window.vm = vm;
+            log('VM instance exposed to window.vm');
+        } else {
+            log('Warning: VM instance is not available or window is undefined');
+        }
+    } catch (error) {
+        log(`Error exposing VM to window: ${error.message}`);
+    }
+};
+
 /*
  * Render the GUI playground. This is a separate function because importing anything
  * that instantiates the VM causes unsupported browsers to crash
@@ -73,6 +87,7 @@ export default appTarget => {
                 onTelemetryModalCancel={handleTelemetryModalCancel}
                 onTelemetryModalOptIn={handleTelemetryModalOptIn}
                 onTelemetryModalOptOut={handleTelemetryModalOptOut}
+                onVmInit={handleVmInit}
             /> :
             <WrappedGui
                 canEditTitle
@@ -81,6 +96,7 @@ export default appTarget => {
                 backpackHost={backpackHost}
                 canSave={false}
                 onClickLogo={onClickLogo}
+                onVmInit={handleVmInit}
             />,
         appTarget);
 };
