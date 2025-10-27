@@ -88,6 +88,7 @@ export default appTarget => {
                 onTelemetryModalOptIn={handleTelemetryModalOptIn}
                 onTelemetryModalOptOut={handleTelemetryModalOptOut}
                 onVmInit={handleVmInit}
+                noBeforeUnloadHandler
             /> :
             <WrappedGui
                 canEditTitle
@@ -97,6 +98,7 @@ export default appTarget => {
                 canSave={false}
                 onClickLogo={onClickLogo}
                 onVmInit={handleVmInit}
+                noBeforeUnloadHandler
             />,
         appTarget);
 };
